@@ -5,6 +5,7 @@ import './assets/App.css';
 
 function App() {
   const handleClick=(event,data)=>{
+    console.log(event)
     console.log(data)
     message.success('成功了。。。。')
   }
@@ -14,6 +15,7 @@ function App() {
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <p> 黎在亚</p>
         <Button type="primary" onClick={(event)=>{handleClick(event,123)}}> 按钮</Button>
+        <Button type="primary" onClick={handleClick.bind(this,123)}> 按钮</Button>
       </header>
     </div>
   );
