@@ -1,23 +1,16 @@
 import React from 'react';
-import logo from './assets/logo.svg';
-import {Button,message} from 'antd'
-import './assets/App.css';
-
+import {BrowserRouter,Route,Switch} from 'react-router-dom';
+import Login from './pages/login/login'
+import Admin from './pages/admin/admin'
 function App() {
-  const handleClick=(event,data)=>{
-    console.log(event)
-    console.log(data)
-    message.success('成功了。。。。')
-  }
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p> 黎在亚</p>
-        <Button type="primary" onClick={(event)=>{handleClick(event,123)}}> 按钮</Button>
-        <Button type="primary" onClick={handleClick.bind(this,123)}> 按钮</Button>
-      </header>
-    </div>
+    <BrowserRouter>
+    {/* 只匹配其中一个 */}
+      <Switch> 
+        <Route path="/login" component={Login} ></Route>
+        <Route path="/" component={Admin} ></Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
